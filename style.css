@@ -1,8 +1,8 @@
 :root{
   --bg:linear-gradient(180deg,#fbfdff,#f4f7ff);
   --muted:#fbfbff;
-  --accent:#6C5CE7; /* vivid indigo */
-  --accent-2:#00BFA6; /* teal accent */
+  --accent:#FF6B6B; /* vibrant red */
+  --accent-2:#4ECDC4; /* teal accent */
   --accent-contrast:#fff;
   --muted-contrast:#495057;
   --max-width:1100px;
@@ -16,6 +16,9 @@ body{
   margin:0;
   font-family:Inter, Arial, Helvetica, sans-serif;
   background:var(--bg);
+  background-image: radial-gradient(circle at 25% 25%, rgba(255,107,107,0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 75% 75%, rgba(78,205,196,0.1) 0%, transparent 50%);
+  background-size: 400px 400px;
   color:#222;
   -webkit-font-smoothing:antialiased;
 }
@@ -27,7 +30,8 @@ body{
 .site-nav{position:sticky;top:0;z-index:50;background:linear-gradient(90deg, rgba(51,51,51,0.98) 0%, rgba(40,40,40,0.95) 100%);box-shadow:0 6px 24px rgba(0,0,0,0.12);backdrop-filter: blur(6px)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-width);margin:0 auto;padding:12px 16px}
 .LOGO{font-size:20px;font-weight:700;letter-spacing:1px;color:var(--accent-contrast);text-decoration:none;display:inline-flex;align-items:center;gap:10px}
-.logo-accent{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;background:#ff6b6b;color:#fff;border-radius:6px;font-weight:700}
+.logo-accent{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;background:#ff6b6b;color:#fff;border-radius:6px;font-weight:700;animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
 .nav-toggle{display:none;border:0;background:transparent;color:var(--accent-contrast);cursor:pointer}
 .hamburger{display:inline-block;width:20px;height:2px;background:var(--accent-contrast);position:relative;transition:all .25s ease}
 .hamburger::before,.hamburger::after{content:'';position:absolute;left:0;width:20px;height:2px;background:var(--accent-contrast);transition:transform .25s ease}
@@ -65,6 +69,10 @@ header{
   text-align:center;
 }
 header .container{max-width:900px;margin:0 auto}
+.hero-content{display:flex;align-items:center;gap:40px;justify-content:center;flex-wrap:wrap}
+.profile-img{width:150px;height:150px;border-radius:50%;border:5px solid var(--accent);box-shadow:0 10px 30px rgba(108,92,231,0.3);animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-text{text-align:left}
 header h1{margin:0;font-size:clamp(26px,4vw,44px);letter-spacing:0.2px}
 header .subtitle{margin:10px 0 20px;color:var(--muted-contrast)}
 .hero-ctas{display:inline-flex;gap:12px;align-items:center}
@@ -74,7 +82,8 @@ header .subtitle{margin:10px 0 20px;color:var(--muted-contrast)}
 .btn:hover{transform:translateY(-3px)}
 
 /* Sections */
-section{padding:48px 0}
+section{padding:48px 0;animation:fadeInUp 1s ease-out}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 section h2{text-align:center;margin:0 0 18px;font-size:20px}
 
 #instagram .about-content{max-width:820px;margin:0 auto;text-align:left}
@@ -90,7 +99,7 @@ section h2{text-align:center;margin:0 0 18px;font-size:20px}
 #skills{background:transparent;padding:56px 0}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:1100px;margin:16px auto 0}
 .skill-card{display:flex;gap:12px;align-items:center;padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfbff);box-shadow:var(--card-shadow);border:1px solid rgba(32,32,54,0.04);transition:transform .18s ease,box-shadow .18s ease}
-.skill-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(28,27,45,0.1)}
+.skill-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(28,27,45,0.1), 0 0 20px rgba(255,107,107,0.3)}
 .skill-icon{min-width:56px;height:56px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;box-shadow:0 6px 18px rgba(15,15,15,0.06);font-size:14px}
 .skill-name{font-weight:700}
 .skill-level{font-size:13px;color:var(--muted-contrast);margin-top:4px}
