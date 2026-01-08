@@ -20,6 +20,7 @@
           <li><a href="https://www.youtube.com/channel/UCWDhQheMq5D7Ag547eqZPyg">YouTube</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="https://www.linkedin.com/in/krishn-veer-a850772a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -230,7 +231,7 @@
 
     <section id="contact">
         <h2>Contact Me</h2>
-        <form id="instagram-from">
+        <form id="contact-form" action="https://formspree.io/f/mpqwvkyn" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
@@ -288,6 +289,18 @@
             window.addEventListener('load', animate);
           }
         })();
+
+        // Contact form handler
+        const contactForm = document.getElementById('contact-form');
+        if(contactForm){
+          contactForm.addEventListener('submit', function(e){
+            // Form will submit to Formspree, show success message after submission
+            setTimeout(() => {
+              alert('Thank you for your message! I will get back to you soon.');
+              contactForm.reset();
+            }, 1000);
+          });
+        }
       })();
     </script>
 </body>
